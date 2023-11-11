@@ -30,7 +30,7 @@ cmake -S . -B ./build -DCMAKE_TOOLCHAIN_FILE=./build/conan_toolchain.cmake
 cmake --build ./build
 ```
 
-## Execute the Examples
+## Run the Examples
 
 The three executables are in the build directory: 
 - `./build/bin/box` The C++ implementation
@@ -43,7 +43,7 @@ Navigate (when not already in this directory):
 cd ./consumer
 ```
 
-And execute all features from the `feature` directory:
+And run all features from the `feature` directory:
 
 ```
 ./build/bin/box ./features
@@ -54,7 +54,7 @@ Or with an own `main`
 ./build/bin/box-no-main ./features
 ```
 
-The C implementation supports all features, but you can not run all feature files from a directory, you have to execute them explicitly. For instance
+The C implementation supports all features, but you can not run all feature files from a directory, you have to run them explicitly. For instance
 
 ```
 ./build/bin/box-c ./features/first_example.feature ./features/box.feature ./features/scenario_outline.feature
