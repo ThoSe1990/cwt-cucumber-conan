@@ -21,12 +21,8 @@ if(MSVC)
     )
 endif()
 
-set(target box)
-
 find_package(cwt-cucumber REQUIRED)
 
-add_executable(${target} 
-  ${CMAKE_CURRENT_SOURCE_DIR}/step_definition/step_definition.cpp
-)
-target_include_directories(${target} PRIVATE ${PROJECT_SOURCE_DIR}/src)
-target_link_libraries(${target} cwt::cucumber)
+add_subdirectory(${CMAKE_SOURCE_DIR}/c)
+add_subdirectory(${CMAKE_SOURCE_DIR}/cpp)
+add_subdirectory(${CMAKE_SOURCE_DIR}/cpp-no-main)

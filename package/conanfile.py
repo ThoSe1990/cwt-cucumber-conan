@@ -48,29 +48,11 @@ class CucumberRecipe(ConanFile):
     self.cpp_info.includedirs = ['include'] 
     self.cpp_info.libdirs = ['lib']
 
-    self.cpp_info.components["cucumber"].libs = ["cucumber-cpp"]
-    self.cpp_info.components["cucumber-c"].libs = ["cucumber"]
-    self.cpp_info.components["cucumber-no-main"].libs = ["cucumber-cpp-nomain"]
-
-    # self.cpp_info.set_property("cmake_file_name", "cwt")
-    # self.cpp_info.set_property("cmake_target_name", "cwt-cucumber::cucumber")
     self.cpp_info.components["cucumber"].set_property("cmake_target_name", "cwt::cucumber")
+    self.cpp_info.components["cucumber"].libs = ["cucumber-cpp"]
+
     self.cpp_info.components["cucumber-c"].set_property("cmake_target_name", "cwt::cucumber-c")
+    self.cpp_info.components["cucumber-c"].libs = ["cucumber"]
+
     self.cpp_info.components["cucumber-no-main"].set_property("cmake_target_name", "cwt::cucumber-no-main")
-
-
-      # self.cpp_info.set_property("cmake_file_name", "cwt-cucumer")
-      # self.cpp_info.set_property("cmake_find_mode", "both")
-      # self.cpp_info.libs = ["libcucumber-cpp"]
-      # self.cpp_info.set_property("cmake_target_name", "cwt-cucumber::cucumber")
-
-      # self.cpp_info.components["cucumber"].libs = ['libcucumber-cpp']
-      # self.cpp_info.components["cucumber"].set_property("cmake_target_name", "cucumber")
-
-
-      # self.cpp_info.components["cucumber-cpp"].set_property("cmake_target_name", "cwt-cucumber::cucumber")
-      # self.cpp_info.components["cucumber-cpp"].set_property("pkg_config_name", "cucumber")
-      # self.cpp_info.components["cucumber-cpp"].libs = ['libcucumber-cpp']
-
-
-        
+    self.cpp_info.components["cucumber-no-main"].libs = ["cucumber-cpp-nomain"]

@@ -1,6 +1,6 @@
 #include "cwt/cucumber.hpp"
 
-#include "box.hpp"
+#include "../src/box.hpp"
 
 GIVEN(box_init, "A box with {int} x {int} x {int}")
 {
