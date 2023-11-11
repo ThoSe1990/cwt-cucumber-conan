@@ -1,5 +1,6 @@
-Find cwt-cucumber in [this GitHub repository](https://github.com/ThoSe1990/cwt-cucumber)
+The Conan recipe and the examples from this GitHub repository refer to [CWT-Cucumber: A simple C/C++ Cucumber Interpreter](https://github.com/ThoSe1990/cwt-cucumber).
 
+  
 # CWT-Cucumber: Conan Recipe
 
 At the moment, the Conan recipe is not pushed to the conancenter. For now, I maintain the recipe in this repo, to build the package locally and to use cwt-cucumber. In the long run, I'll consider moving the recipe to conancenter.
