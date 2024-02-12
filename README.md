@@ -9,17 +9,17 @@ At the moment, the Conan recipe is not pushed to the conancenter. For now, I mai
 
 When you integrate this into your projects, there is not too much to do: 
 
-- Find the cwt-cucumber package: `find_package(cwt-cucumber REQUIRED)`
+- Find the cwt-cucumber package: `find_package(cucumber REQUIRED)`
 - Compile your sources / steps
-- Link against `cwt::cucumber`, `cwt::cucumber-no-main` or `cwt::cucumber-c`
+- Link against `cucumber::cucumber` or `cucumber::cucumber-no-main`
 
 ## Build the Conan Package & Examples
 
 Move to `./package` and create the conan package:
 
-```
+```shell
 cd package
-conan create . --version 1.0.0 --user cwt --channel stable
+conan create . --version 1.1.0 --user cwt --channel stable
 ```
 
 If you want to use another user and channel, feel free to do so. But remember to use them correctly in the consumer's `conanfile.txt`
@@ -33,34 +33,19 @@ cmake -S . -B ./build -DCMAKE_TOOLCHAIN_FILE=./build/conan_toolchain.cmake
 cmake --build ./build
 ```
 
-## Run the Examples
-
-The three executables are in the build directory: 
-- `./build/bin/box` The C++ implementation
-- `./build/bin/box-no-main` The C++ implementation with its own main
-- `./build/bin/box-c` The C implementation
-
-
-Navigate (when not already in this directory):
-```
-cd ./consumer
-```
-
-And run all features from the `feature` directory:
+And now you can execute the feature files, for example:
 
 ```
-./build/bin/box ./features
-```
+./build/bin/Debug/box ./features/1_first_scenario.feature
 
-Or with an own `main`
-```
-./build/bin/box-no-main ./features
-```
+Feature: My first feature  ./features/1_first_scenario.feature:2
 
-The C implementation supports all features, but you can not run all feature files from a directory, you have to run them explicitly. For instance
-
-```
-./build/bin/box-c ./features/first_example.feature ./features/box.feature ./features/scenario_outline.feature
-```
+Scenario: First Scenario  ./features/1_first_scenario.feature:5
+[   PASSED    ] An empty box  ./features/1_first_scenario.feature:6
+[   PASSED    ] I place 2 x "apple" in it  ./features/1_first_scenario.feature:7
+[   PASSED    ] The box contains 2 item(s)  ./features/1_first_scenario.feature:8
 
 
+1 Scenarios (1 passed)
+3 Steps (3 passed)
+```

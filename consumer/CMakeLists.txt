@@ -1,13 +1,13 @@
 
 
 cmake_minimum_required(VERSION 3.16)
-project(cwt-cucumber VERSION 1.0.0)
+project(cucumber-conan-example VERSION 1.0.0)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 
-if (NOT CMAKE_BUILD_TYPE)
+# if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)
-endif()
+# endif()
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
@@ -21,8 +21,13 @@ if(MSVC)
     )
 endif()
 
-find_package(cwt-cucumber REQUIRED)
+find_package(cucumber REQUIRED)
 
-add_subdirectory(${CMAKE_SOURCE_DIR}/c)
-add_subdirectory(${CMAKE_SOURCE_DIR}/cpp)
-add_subdirectory(${CMAKE_SOURCE_DIR}/cpp-no-main)
+set(target box)
+
+add_executable(${target}
+  ${CMAKE_CURRENT_SOURCE_DIR}/step_definition/step_definition.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/step_definition/hooks.cpp
+)
+
+target_link_libraries(${target} cucumber::cucumber)

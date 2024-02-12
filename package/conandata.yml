@@ -1,4 +1,4 @@
 sources:
-  "1.0.0":
-    url: "https://github.com/ThoSe1990/cwt-cucumber/archive/refs/tags/1.0.0.zip"
-    sha256: "e5b2e9f17b326ea11f6fef98d9b2f61af39ce694600f3a5a31bfef8dd90d923f"
+  "1.1.0":
+    url: "https://github.com/ThoSe1990/cucumber-cpp/archive/refs/tags/1.1.0.zip"
+    sha256: "984c86b93a361fe485241da404439c8f24aeae730735427ec0e27afb644c2c70"
