@@ -8,7 +8,7 @@ from os.path import join
 
 class CucumberRecipe(ConanFile):
 
-  name = "cucumber"
+  name = "cwt-cucumber"
 
   license = "MIT"
   author = "Thomas Sedlmair, thomas.sedlmair@googlemail.com"
@@ -47,8 +47,8 @@ class CucumberRecipe(ConanFile):
     self.cpp_info.includedirs = ['include'] 
     self.cpp_info.libdirs = ['lib']
 
-    self.cpp_info.components["cucumber"].set_property("cmake_target_name", "cucumber::cucumber")
+    self.cpp_info.components["cucumber"].set_property("cmake_target_name", "cwt::cucumber")
     self.cpp_info.components["cucumber"].libs = ["cucumber"]
 
-    self.cpp_info.components["cucumber-no-main"].set_property("cmake_target_name", "cucumber::cucumber-no-main")
+    self.cpp_info.components["cucumber-no-main"].set_property("cmake_target_name", "cwt::cucumber-no-main")
     self.cpp_info.components["cucumber-no-main"].libs = ["cucumber-no-main"]

@@ -21,7 +21,7 @@ if(MSVC)
     )
 endif()
 
-find_package(cucumber REQUIRED)
+find_package(cwt-cucumber REQUIRED)
 
 set(target box)
 
@@ -30,4 +30,4 @@ add_executable(${target}
   ${CMAKE_CURRENT_SOURCE_DIR}/step_definition/hooks.cpp
 )
 
-target_link_libraries(${target} cucumber::cucumber)
+target_link_libraries(${target} cwt::cucumber)
