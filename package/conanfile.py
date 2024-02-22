@@ -18,15 +18,16 @@ class CucumberRecipe(ConanFile):
 
   generators = "CMakeDeps"
   settings = "os", "compiler", "build_type", "arch"
-  options = {"stack_trace": [True, False]}
-  default_options = {"stack_trace": False}
+  options = {"shared": [True, False]}
+  default_options = {"shared": False}
 
   def source(self):
     get(self, **self.conan_data["sources"][self.version], strip_root=True)
     
   def generate(self):
     tc = CMakeToolchain(self)
-    tc.variables["STACK_TRACE"] = bool(self.options.stack_trace)
+    if self.options.shared:
+      tc.variables["BUILD_SHARED_LIBS"] = True
     tc.generate()
 
   def build(self):
@@ -42,6 +43,8 @@ class CucumberRecipe(ConanFile):
     dst = join(self.package_folder, "lib")
     src = join(self.source_folder, "lib")
     copy(self, "*", src, dst, keep_path=False)
+    
+    copy(self, "LICENSE", self.source_folder, self.package_folder)
 
   def package_info(self):
     self.cpp_info.includedirs = ['include'] 
