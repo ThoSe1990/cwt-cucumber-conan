@@ -27,7 +27,7 @@ If you want to use another user and channel, feel free to do so. But remember to
 And now you can move over to `./consumer` to build the examples: 
 
 ```
-cd ../consumer
+cd ../examples
 conan install . -of ./build 
 cmake -S . -B ./build -DCMAKE_TOOLCHAIN_FILE=./build/conan_toolchain.cmake
 cmake --build ./build
