@@ -1,7 +1,7 @@
 
 
 cmake_minimum_required(VERSION 3.16)
-project(cucumber-conan-example VERSION 1.0.0)
+project(cucumber-conan-example)
 
 set(CMAKE_CXX_STANDARD 20)
 
