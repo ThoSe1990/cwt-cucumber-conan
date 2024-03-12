@@ -1,5 +1,5 @@
 [requires]
-cwt-cucumber/1.2.1@cwt/stable
+cwt-cucumber/1.2.2@cwt/stable
 
 [generators]
 CMakeToolchain
