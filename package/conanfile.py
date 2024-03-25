@@ -47,6 +47,8 @@ class CucumberRecipe(ConanFile):
     copy(self, "LICENSE", self.source_folder, self.package_folder)
 
   def package_info(self):
+    self.cpp_info.libs = ["cwt-cucumber"]
+    
     self.cpp_info.includedirs = ['include'] 
     self.cpp_info.libdirs = ['lib']
 
