@@ -29,7 +29,7 @@ And now you can move over to `./consumer` to build the examples:
 ```
 cd ../examples
 conan install . -of ./build 
-cmake -S . -B ./build -DCMAKE_TOOLCHAIN_FILE="./build/conan_toolchain.cmake"
+cmake -S . -B ./build -DCMAKE_TOOLCHAIN_FILE=./build/conan_toolchain.cmake
 cmake --build ./build
 ```
 
