@@ -6,7 +6,6 @@ GIVEN(init_box, "An empty box")
   const box& my_box = cuke::context<box>();
   cuke::equal(my_box.items_count(), 0);
 }
-
 WHEN(add_item, "I place {int} x {string} in it")
 {
   const std::size_t count = CUKE_ARG(1);
@@ -21,10 +20,20 @@ WHEN(doc_string, "There is a doc string:")
   std::cout << str << '\n';
   std::cout << "------------------------------------------" << '\n';
 }
+WHEN(doc_string_vector, "There is a doc string as vector:")
+{
+  const std::vector<std::string> doc_string = CUKE_DOC_STRING();
+  std::cout << "-------- Print from step definition: -----" << '\n';
+  for (const std::string& line : doc_string)
+  {
+    std::cout << line << '\n';
+  }
+  std::cout << "------------------------------------------" << '\n';
+}
 WHEN(add_table_raw, "I add all items with raw():")
 {
   const cuke::table& t = CUKE_TABLE();
-  for (const auto& row : t.raw())
+  for (const cuke::table::row& row : t.raw())
   {
     cuke::context<box>().add_items(row[0].to_string(), row[1].copy_as<long>());
   }
@@ -34,15 +43,26 @@ WHEN(add_table_hashes, "I add all items with hashes():")
   const cuke::table& t = CUKE_TABLE();
   for (const auto& row : t.hashes())
   {
-    cuke::context<box>().add_items(row["ITEM"].to_string(), row["QUANTITY"].as<long>());
+    cuke::context<box>().add_items(row["ITEM"].to_string(),
+                                   row["QUANTITY"].as<long>());
   }
 }
-WHEN(add_table_rows_hash, "I add the following item with rows_hash():") 
+WHEN(add_table_rows_hash, "I add the following item with rows_hash():")
 {
   const cuke::table& t = CUKE_TABLE();
   cuke::table::pair hash_rows = t.rows_hash();
 
-  cuke::context<box>().add_items(hash_rows["ITEM"].to_string(), hash_rows["QUANTITY"].as<long>());
+  cuke::context<box>().add_items(hash_rows["ITEM"].to_string(),
+                                 hash_rows["QUANTITY"].as<long>());
+}
+
+THEN(test, "The {int} item is {string}")
+{
+  const std::size_t number = CUKE_ARG(1);
+  const std::size_t idx_zero_based = number - 1;
+  const std::string item = CUKE_ARG(2);
+  
+  cuke::equal(item, cuke::context<box>().at(idx_zero_based));
 }
 
 THEN(check_box_size, "The box contains {int} item(s)")

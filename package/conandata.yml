@@ -11,3 +11,6 @@ sources:
   "2.0.0":
     url: "https://github.com/ThoSe1990/cwt-cucumber/archive/refs/tags/2.0.0.zip"
     sha256: "4fc0143d743e01117f727e31c3d8b5ac4c1597251ff1d651e9ec4c19f1038a10"
+  "2.1.0":
+    url: "https://github.com/ThoSe1990/cwt-cucumber/archive/refs/tags/2.1.0.zip"
+    sha256: "03d986e44209f6323e57ece91ecdc0b17c89679dac944aaf7263727950f29358"
