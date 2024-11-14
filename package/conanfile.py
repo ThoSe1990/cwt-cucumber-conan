@@ -21,6 +21,9 @@ class CucumberRecipe(ConanFile):
   options = {"shared": [True, False]}
   default_options = {"shared": False}
 
+  def requirements(self):
+    self.requires("nlohmann_json/3.10.5")
+
   def source(self):
     get(self, **self.conan_data["sources"][self.version], strip_root=True)
     

@@ -19,7 +19,7 @@ Move to `./package` and create the conan package:
 
 ```shell
 cd package
-conan create . --version 2.3.1 --user cwt --channel stable
+conan create . --version 2.4 --user cwt --channel stable
 ```
 
 If you want to use another user and channel, feel free to do so. But remember to use them correctly in the consumer's `conanfile.txt`
@@ -36,7 +36,7 @@ cmake --build ./build
 And now you can execute the feature files, for example:
 
 ```
-./build/bin/Debug/box ./features/1_first_scenario.feature
+./build/bin/Debug/example ./features/1_first_scenario.feature
 
 Feature: My first feature  ./features/1_first_scenario.feature:2
 
