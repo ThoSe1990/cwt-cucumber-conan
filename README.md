@@ -19,7 +19,7 @@ Move to `./package` and create the conan package:
 
 ```shell
 cd package
-conan create . --version 2.4 --user cwt --channel stable
+conan create . --version 2.5 --user cwt --channel stable
 ```
 
 If you want to use another user and channel, feel free to do so. But remember to use them correctly in the consumer's `conanfile.txt`
