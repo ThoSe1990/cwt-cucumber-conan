@@ -9,9 +9,9 @@ At the moment, the Conan recipe is not pushed to the conancenter. For now, I mai
 
 When you integrate this into your projects, there is not too much to do: 
 
-- Find the cwt-cucumber package: `find_package(cucumber REQUIRED)`
+- Find the cwt-cucumber package: `find_package(cwt-cucumber REQUIRED)`
 - Compile your sources / steps
-- Link against `cucumber::cucumber` or `cucumber::cucumber-no-main`
+- Link against `cwt::cucumber` or `cwt::cucumber-no-main`
 
 ## Build the Conan Package & Examples
 
