@@ -7,10 +7,22 @@ Feature: Scenarios with tags
     Then The box contains 5 items
 
   @skip  
-  Scenario: This wont run 
+  Scenario: This will be skipped 
     Given An empty box
     When I place 1 x "whatever" in it
-    Then This would fail because there is no such step
+
+  @skip  
+  Scenario: This will be skipped too 
+    Given An empty box
+    When I place 1 x "whatever" in it
+    Then This is an undefined step even when we use skip 
+
+  @ignore
+  Scenario: This is ignored completely
+    No reporting with using cuke::ignore_scenario() in a hook
+    Given It does not matter how many
+    * Undefined steps are in my Scenario
+    * Nothing will land in the report here ... 
 
   @apples
   Scenario: Apple
@@ -25,7 +37,7 @@ Feature: Scenarios with tags
     And I place 2 x "banana" in it
     Then The box contains 4 items
 
-  Scenario Outline: 
+  Scenario Outline: Lets put <fruit> into the box
     Given An empty box
     When I place <count> x <fruit> in it
     Then The box contains <expected> items

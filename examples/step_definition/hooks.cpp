@@ -2,6 +2,7 @@
 #include "../src/box.hpp"
 
 BEFORE_T(skip, "@skip") { cuke::skip_scenario(); }
+BEFORE_T(ignore, "@ignore") { cuke::ignore_scenario(); }
 
 BEFORE(before)
 {
@@ -30,4 +31,3 @@ AFTER_T(dispatch_box, "@ship or @important")
 BEFORE_ALL(before_all) { std::cout << "-- Hook before all" << std::endl; }
 
 AFTER_ALL(after_all) { std::cout << "-- Hook after all" << std::endl; }
-
