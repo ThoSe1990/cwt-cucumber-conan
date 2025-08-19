@@ -1,3 +1,7 @@
+**08/2025: This repository has been archived, because CWT-Cucumber is now available on [Conancenter](https://conan.io/center/recipes/cwt-cucumber?version=2.7). No need to maintain this local recipe anymore.** 
+
+---
+
 The Conan recipe and the examples from this GitHub repository refer to [CWT-Cucumber: A simple C/C++ Cucumber Interpreter](https://github.com/ThoSe1990/cwt-cucumber).
 
   
