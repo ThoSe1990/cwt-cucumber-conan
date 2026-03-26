@@ -23,8 +23,7 @@ jobs:
         run: |
           mkdir -p pages/cwt-cucumber
           conan create ./all --name=cwt-cucumber --version=2.8
-          mkdir -p pages/cwt-cucumber/2.8
-          cp -r ~/.conan2/p/cwt-cucumber/* pages/cwt-cucumber/2.8/
+          conan export-pkg ./all --name=cwt-cucumber --version=2.8 --install-folder pages/cwt-cucumber/2.8
 
       - name: Configure Pages
         uses: actions/configure-pages@v3
