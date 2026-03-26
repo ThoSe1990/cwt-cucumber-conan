@@ -6,6 +6,14 @@ on:
 jobs:
   build-conan:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+      id-token: write
+      pages: write
+    container: ghcr.io/those1990/linux-dev:1.0
+    env:
+      HOME: /root
 
     steps:
       - name: Checkout repository
@@ -20,7 +28,6 @@ jobs:
       - name: Build and export packages
         run: |
           mkdir -p pages/cwt-cucumber
-          conan profile detect
           conan create ./all --name=cwt-cucumber --version=2.8
           mkdir -p pages/cwt-cucumber/2.8
           cp -r ~/.conan2/p/cwt-cucumber/* pages/cwt-cucumber/2.8/
