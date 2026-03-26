@@ -19,12 +19,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install Conan & yq
-        run: |
-          pip install conan
-          sudo apt update
-          sudo apt install -y yq
-
       - name: Build and export packages
         run: |
           mkdir -p pages/cwt-cucumber
