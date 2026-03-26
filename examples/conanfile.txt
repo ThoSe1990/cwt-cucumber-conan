@@ -1,6 +1,0 @@
-[requires]
-cwt-cucumber/2.7@cwt/stable
-
-[generators]
-CMakeToolchain
-CMakeDeps

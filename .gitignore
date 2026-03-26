@@ -2,3 +2,4 @@ build/
 build*/
 examples/build/
 CMakeUserPresets.json
+.DS_Store

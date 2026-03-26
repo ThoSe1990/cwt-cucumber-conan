@@ -1,0 +1,45 @@
+name: Publish Conan Packages
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-conan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Conan & yq
+        run: |
+          pip install conan
+          sudo apt update
+          sudo apt install -y yq
+
+      - name: Read versions
+        id: versions
+        run: |
+          versions=$(yq e '.versions[]' config.yml)
+          echo "versions=$versions" >> $GITHUB_ENV
+
+      - name: Build and export packages
+        run: |
+          mkdir -p pages/cwt-cucumber
+          for version in $versions; do
+              echo "Building version $version"
+              conan create . --name=cwt-cucumber --version=$version
+              mkdir -p pages/cwt-cucumber/$version
+              cp -r ~/.conan2/p/cwt-cucumber/* pages/cwt-cucumber/$version/
+          done
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./pages
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
