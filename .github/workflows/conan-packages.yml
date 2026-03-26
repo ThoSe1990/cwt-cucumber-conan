@@ -17,21 +17,12 @@ jobs:
           sudo apt update
           sudo apt install -y yq
 
-      - name: Read versions
-        id: versions
-        run: |
-          versions=$(yq e '.versions[]' config.yml)
-          echo "versions=$versions" >> $GITHUB_ENV
-
       - name: Build and export packages
         run: |
           mkdir -p pages/cwt-cucumber
-          for version in $versions; do
-              echo "Building version $version"
-              conan create . --name=cwt-cucumber --version=$version
-              mkdir -p pages/cwt-cucumber/$version
-              cp -r ~/.conan2/p/cwt-cucumber/* pages/cwt-cucumber/$version/
-          done
+          conan create . --name=cwt-cucumber --version=2.8
+          mkdir -p pages/cwt-cucumber/2.8
+          cp -r ~/.conan2/p/cwt-cucumber/* pages/cwt-cucumber/2.8/
 
       - name: Configure Pages
         uses: actions/configure-pages@v3
